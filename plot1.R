@@ -3,8 +3,7 @@
 ## (0) Ensure you have data downloaded from 
 "https://d396qusza40orc.cloudfront.net/exdata%2Fdata%2Fhousehold_power_consumption.zip"
 ## (1) source("plot1.R") to read in the code into your R environment
-## (2) make_plot1() to actually create the plot
-## (3) make_plot1_png() to save to a PNG file
+## (2) make_plot1() to create the plot and save it as a png in your directory
 
 
 make_plot1 <- function(){
@@ -18,13 +17,11 @@ make_plot1 <- function(){
     #convert Global Active Power to character then numeric
     datacut$Global_active_power <- as.numeric(as.character(datacut$Global_active_power))
     DT <- as.POSIXct(paste(datacut$Date, datacut$Time), format="%Y-%m-%d %H:%M:%S")
+    ##Launch Graphics Device
+    png("plot1.png", width = 480, height = 480)
     ##set up histogram
     hist(datacut$Global_active_power, xlab = "Global Active Power (kilowatts)", 
-         col = "red", main = "Global Active Power", cex.lab = .75, 
-         cex.axis = .75, cex.main = 1)
-}
-    
-make_plot1_png <- function(){
-    dev.copy(png, file = "plot1.png", height = 480, width = 480)
+         col = "red", main = "Global Active Power")
+
     dev.off()
 }
