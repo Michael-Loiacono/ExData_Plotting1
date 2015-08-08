@@ -16,7 +16,7 @@ make_plot3 <- function(){
     datemin <- as.Date("2007/2/1")
     datemax <- as.Date("2007/2/2")
     datacut <- data[data$Date >= datemin & data$Date <= datemax, ]
-    #convert Global Active Power to character then numeric
+    #convert needed data to character then numeric
     sm1<- as.numeric(as.character(datacut$Sub_metering_1))
     sm2<- as.numeric(as.character(datacut$Sub_metering_2))
     sm3<- as.numeric(as.character(datacut$Sub_metering_3))

@@ -15,7 +15,7 @@ make_plot2 <- function(){
     datemin <- as.Date("2007/2/1")
     datemax <- as.Date("2007/2/2")
     datacut <- data[data$Date >= datemin & data$Date <= datemax, ]
-    #convert Global Active Power to character then numeric
+    #convert needed data to character then numeric
     datacut$Global_active_power <- 
         as.numeric(as.character(datacut$Global_active_power))
     DT <- as.POSIXct(paste(datacut$Date, datacut$Time), format="%Y-%m-%d %H:%M:%S")
